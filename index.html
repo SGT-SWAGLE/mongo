@@ -16,6 +16,26 @@ $(document).ready(function(){
         jobj = JSON.stringify(myobj);
         $("#json").text(jobj);
     });
+    
+     var url = "images";
+        $.post(url,jobj,function(data,textStatus) {
+          $("#done").append(textStatus);
+        });
+        
+        
+        var url = "images";
+      $.getJSON(url,function(data) {
+        var everything;
+        everything = "<ul>";
+        $.each(data, function(i,item) {
+          everything += "<li> Name: "+data[i].Name+" Url: "+data[i].Comment;
+        });
+        everything += "</ul>";
+        $("#currentImages").html(everything);
+      });
+
+    
+    
 });
 </script>
 </head>
@@ -42,6 +62,7 @@ $(document).ready(function(){
     <br>
     <div><img src="http://www.aamrofreight.net/wp-content/uploads/2014/06/abstract-backgrounds-hexagons-honeycomb-patterns-textures.jpg"></div>
 
+<div id="currentImages"></div> <!--debug shows what we got back-->
 
 </body>
 </html>
