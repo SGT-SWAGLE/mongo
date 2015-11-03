@@ -5,6 +5,19 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Image site</title>
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function(){
+   
+    
+        $("button").click(function(){
+        var myobj = {Name:$("#Name").val(),Url:$("#Imgurl").val()};
+        jobj = JSON.stringify(myobj);
+        $("#json").text(jobj);
+    });
+});
+</script>
 </head>
 
 <body>
@@ -12,12 +25,16 @@
 
         <div align="center">
             <strong>Name: </strong> <input type="text" name="name" placeholder="Your name" required autofocus><br>
-            <strong>Image Url: </strong><input type="text" name="imgurl" placeholder="www.blah.com/abcd.jpg" required autofocus><br><br>
+            <strong>Image Url: </strong><input type="text" name="imgurl" placeholder="www.blah.com/abcd.jpg" required autofocus><br>
+            
+            
+            
+            <div id="json"></div> <!--debug-->
 
 
 
 
-            <input type="submit" name="submit" value="Submit" id="button" onclick="function()">
+            <button>Submit</button>
             <input type="reset" name="reset" value="Reset" id="button">
 
         </div>
